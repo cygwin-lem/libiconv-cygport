@@ -1,0 +1,26 @@
+--- origsrc/libiconv-1.12/Makefile.devel	2007-11-11 10:31:05.000000000 -0600
++++ src/libiconv-1.12/Makefile.devel	2008-09-19 03:49:34.043548400 -0500
+@@ -4,8 +4,8 @@
+ 
+ SHELL = /bin/sh
+ MAKE = make
+-AUTOCONF = autoconf-2.61
+-AUTOHEADER = autoheader-2.61
++AUTOCONF = autoconf --force
++AUTOHEADER = autoheader --force
+ AUTOMAKE = automake-1.10
+ ACLOCAL = aclocal-1.10
+ GPERF = gperf
+--- origsrc/libiconv-1.12/libcharset/Makefile.devel	2007-11-11 09:56:00.000000000 -0600
++++ src/libiconv-1.12/libcharset/Makefile.devel	2008-09-19 03:53:39.652923400 -0500
+@@ -3,8 +3,8 @@
+ 
+ SHELL = /bin/sh
+ MAKE = make
+-AUTOCONF = autoconf-2.61
+-AUTOHEADER = autoheader-2.61
++AUTOCONF = autoconf --force
++AUTOHEADER = autoheader --force
+ ACLOCAL = aclocal-1.10
+ CP = cp
+ RM = rm -f
