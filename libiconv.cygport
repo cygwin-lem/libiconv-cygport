@@ -1,6 +1,6 @@
 NAME="libiconv"
 VERSION=1.14
-RELEASE=2
+RELEASE=3
 CATEGORY="Libs"
 SUMMARY="Unicode iconv() implementation"
 DESCRIPTION="This library provides an iconv() implementation, for use on systems
@@ -15,10 +15,11 @@ PATCH_URI="
 	1.14-aliases.patch
 "
 
-PKG_NAMES="${PN} libiconv2 libcharset1"
-libiconv_CONTENTS="usr/bin/iconv.exe usr/include/ usr/lib/ usr/share/"
+PKG_NAMES="${NAME} libiconv2 libcharset1 libiconv-devel"
+libiconv_CONTENTS="usr/bin/iconv.exe usr/share/doc/ usr/share/locale/ usr/share/man/man1/"
 libiconv2_CONTENTS="usr/bin/cygiconv-2.dll"
 libcharset1_CONTENTS="usr/bin/cygcharset-1.dll"
+libiconv_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
 
 DIFF_EXCLUDES="*.html"
 
