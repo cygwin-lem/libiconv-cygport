@@ -1,6 +1,6 @@
 NAME="libiconv"
-VERSION=1.14
-RELEASE=3
+VERSION=1.16
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Unicode iconv() implementation"
 DESCRIPTION="This library provides an iconv() implementation, for use on systems
@@ -9,17 +9,20 @@ HOMEPAGE="http://www.gnu.org/software/libiconv/"
 SRC_URI="mirror://gnu/libiconv/libiconv-${VERSION}.tar.gz"
 
 PATCH_URI="
-	1.14-reloc.patch
-	1.14-wchar.patch
-	1.14-cross-install.patch
-	1.14-aliases.patch
+1.16-wchar.patch
+1.16-cross-install.patch
+1.16-aliases.patch
 "
 
-PKG_NAMES="${NAME} libiconv2 libcharset1 libiconv-devel"
-libiconv_CONTENTS="usr/bin/iconv.exe usr/share/doc/ usr/share/locale/ usr/share/man/man1/"
-libiconv2_CONTENTS="usr/bin/cygiconv-2.dll"
-libcharset1_CONTENTS="usr/bin/cygcharset-1.dll"
-libiconv_devel_CONTENTS="usr/include/ usr/lib/ usr/share/man/man3/"
+abi=2
+libcharset_abi=1
+
+PKG_NAMES="${NAME} ${PN}${abi} libcharset${libcharset_abi} ${PN}-devel"
+
+printf -v "${NAME}_CONTENTS" "%s" "usr/bin/iconv.exe usr/share/doc/ usr/share/locale/ usr/share/man/man1/"
+printf -v "${PN}${abi}_CONTENTS" "%s" "usr/bin/cygiconv-${abi}.dll"
+printf -v "libcharset${libcharset_abi}_CONTENTS" "%s" "usr/bin/cygcharset-${libcharset_abi}.dll"
+printf -v "${PN}_devel_CONTENTS" "%s" "usr/include/ usr/lib/ usr/share/man/man3/"
 
 DIFF_EXCLUDES="*.html"
 
@@ -27,7 +30,7 @@ DISTCLEANFILES="m4/libtool.m4 m4/lt*.m4 libcharset/m4/libtool.m4 libcharset/m4/l
 
 CYGPORT_USE_UNSTABLE_API=1
 src_patch_hook() {
-	cygmake -f Makefile.devel lib/aliases.h
+	cygmake -j1 -f Makefile.devel lib/aliases.h
 }
 
 src_compile() {
@@ -35,11 +38,11 @@ src_compile() {
 	ACLOCAL_FLAGS="-I ${S}/m4 -I ${S}/srcm4"
 	cygautoreconf
 	cd ${B}
-	cygconf --enable-shared --enable-static \
+	cygconf --enable-shared \
 		--enable-extra-encodings \
 		am_cv_proto_iconv_arg1= \
 		am_cv_proto_iconv="extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);"
-	cygmake
+	cygmake -j1
 }
 
 src_install() {
