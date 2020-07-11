@@ -38,7 +38,7 @@ src_compile() {
 	ACLOCAL_FLAGS="-I ${S}/m4 -I ${S}/srcm4"
 	cygautoreconf
 	cd ${B}
-	cygconf --enable-shared --enable-static \
+	cygconf --enable-shared \
 		--enable-extra-encodings \
 		am_cv_proto_iconv_arg1= \
 		am_cv_proto_iconv="extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);"
