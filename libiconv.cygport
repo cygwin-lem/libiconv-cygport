@@ -1,6 +1,6 @@
 NAME="libiconv"
 VERSION=1.16
-RELEASE=1
+RELEASE=2
 CATEGORY="Libs"
 SUMMARY="Unicode iconv() implementation"
 DESCRIPTION="This library provides an iconv() implementation, for use on systems
