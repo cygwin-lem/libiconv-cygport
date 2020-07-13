@@ -33,12 +33,17 @@ src_patch_hook() {
 	cygmake -j1 -f Makefile.devel lib/aliases.h
 }
 
+# NOTE: '--enable-static' is deliberately set.
+#   Static libiconv is used when building Cygwin dumper.exe (as a
+#   dependency of libbfd.a, which is static only).
+#   cf. Yaakov Selkowitz, https://cygwin.com/pipermail/cygwin-apps/2020-July/040302.html
 src_compile() {
 	cd ${S}
 	ACLOCAL_FLAGS="-I ${S}/m4 -I ${S}/srcm4"
 	cygautoreconf
 	cd ${B}
 	cygconf --enable-shared \
+		--enable-static \
 		--enable-extra-encodings \
 		am_cv_proto_iconv_arg1= \
 		am_cv_proto_iconv="extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);"
