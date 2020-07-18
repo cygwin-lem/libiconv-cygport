@@ -8,6 +8,10 @@ which don't have one, or whose implementation cannot convert from/to Unicode."
 HOMEPAGE="http://www.gnu.org/software/libiconv/"
 SRC_URI="mirror://gnu/libiconv/libiconv-${VERSION}.tar.gz"
 
+BUILD_REQUIRES="\
+  gperf\
+"
+
 PATCH_URI="
 1.16-wchar.patch
 1.16-cross-install.patch
