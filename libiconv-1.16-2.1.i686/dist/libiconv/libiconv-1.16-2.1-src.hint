@@ -1,0 +1,8 @@
+category: Libs
+build-depends: cygport   gettext-devel  gperf
+sdesc: "Unicode iconv() implementation"
+ldesc: "This library provides an iconv() implementation, for use on systems
+which don't have one, or whose implementation cannot convert from/to Unicode."
+skip:
+test:
+homepage: http://www.gnu.org/software/libiconv/
