@@ -9,6 +9,7 @@ HOMEPAGE="http://www.gnu.org/software/libiconv/"
 SRC_URI="mirror://gnu/libiconv/libiconv-${VERSION}.tar.gz"
 
 BUILD_REQUIRES="\
+  gettext-devel\
   gperf\
 "
 
