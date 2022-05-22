@@ -1,11 +1,11 @@
 NAME="libiconv"
-VERSION=1.16
-RELEASE=2
+VERSION=1.17
+RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Unicode iconv() implementation"
 DESCRIPTION="This library provides an iconv() implementation, for use on systems
 which don't have one, or whose implementation cannot convert from/to Unicode."
-HOMEPAGE="http://www.gnu.org/software/libiconv/"
+HOMEPAGE="https://www.gnu.org/software/libiconv/"
 SRC_URI="mirror://gnu/libiconv/libiconv-${VERSION}.tar.gz"
 
 BUILD_REQUIRES="\
@@ -14,7 +14,7 @@ BUILD_REQUIRES="\
 "
 
 PATCH_URI="
-1.16-wchar.patch
+1.17-wchar.patch
 1.16-cross-install.patch
 1.16-aliases.patch
 "
