@@ -6,10 +6,10 @@ SUMMARY="Unicode iconv() implementation"
 DESCRIPTION="This library provides an iconv() implementation, for use on systems
 which don't have one, or whose implementation cannot convert from/to Unicode."
 HOMEPAGE="https://www.gnu.org/software/libiconv/"
-LICENSE="LGPL-2.1-or-later AND GPL-3.0+"
+LICENSE="LGPL-2.1-or-later AND GPL-3.0-or-later"
 # cf. https://www.cygwin.com/packaging-hint-files.html#pvr-src.hint
 #     https://spdx.org/licenses/LGPL-2.1-or-later.html
-#     https://spdx.org/licenses/GPL-3.0+.html
+#     https://spdx.org/licenses/GPL-3.0-or-later.html
 SRC_URI="mirror://gnu/libiconv/libiconv-${VERSION}.tar.gz"
 
 BUILD_REQUIRES="\
