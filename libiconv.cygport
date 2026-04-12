@@ -1,5 +1,5 @@
 NAME="libiconv"
-VERSION=1.18
+VERSION=1.19
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="Unicode iconv() implementation"
@@ -20,8 +20,8 @@ BUILD_REQUIRES="\
 PATCH_URI="
 1.17-wchar.patch
 1.18-cross-install.patch
-1.18-aliases.patch
 "
+#1.18-aliases.patch
 
 abi=2
 libcharset_abi=1
